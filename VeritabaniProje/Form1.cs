@@ -19,10 +19,10 @@ namespace VeritabaniProje
         }
 
         //Bağlantı Cümleciği
-        OleDbConnection Baglanti = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=vt.accdb");
+        public static OleDbConnection Baglanti = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=vt.accdb");
 
         //Veritabanı bağlatısını kontrollü şekilde açan method
-        public void BaglantiAc()
+        public static void BaglantiAc()
         {
             try
             {
@@ -83,6 +83,12 @@ namespace VeritabaniProje
         {
             EkleForm ekleForm = new EkleForm();
             ekleForm.ShowDialog();
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            Baglanti.Close();
+            KayitListele();
         }
     }
 }

@@ -46,6 +46,9 @@ namespace VeritabaniProje
             this.txt_tcno = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_kayit_ekle = new System.Windows.Forms.Button();
+            this.lblradio = new System.Windows.Forms.Label();
+            this.lbldyerchek = new System.Windows.Forms.Label();
+            this.lblpartchek = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,6 +205,9 @@ namespace VeritabaniProje
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.Controls.Add(this.lblpartchek);
+            this.groupBox2.Controls.Add(this.lbldyerchek);
+            this.groupBox2.Controls.Add(this.lblradio);
             this.groupBox2.Controls.Add(this.txt_tcno);
             this.groupBox2.Controls.Add(this.dateTimePicker_doğumGun);
             this.groupBox2.Controls.Add(this.cmb_part);
@@ -233,6 +239,39 @@ namespace VeritabaniProje
             this.btn_kayit_ekle.Text = "Kayıt Ekle.";
             this.btn_kayit_ekle.UseVisualStyleBackColor = true;
             this.btn_kayit_ekle.Click += new System.EventHandler(this.btn_kayit_ekle_Click);
+            // 
+            // lblradio
+            // 
+            this.lblradio.AutoSize = true;
+            this.lblradio.ForeColor = System.Drawing.Color.Red;
+            this.lblradio.Location = new System.Drawing.Point(188, 87);
+            this.lblradio.Name = "lblradio";
+            this.lblradio.Size = new System.Drawing.Size(22, 13);
+            this.lblradio.TabIndex = 6;
+            this.lblradio.Text = "///";
+            this.lblradio.Visible = false;
+            // 
+            // lbldyerchek
+            // 
+            this.lbldyerchek.AutoSize = true;
+            this.lbldyerchek.ForeColor = System.Drawing.Color.Red;
+            this.lbldyerchek.Location = new System.Drawing.Point(204, 107);
+            this.lbldyerchek.Name = "lbldyerchek";
+            this.lbldyerchek.Size = new System.Drawing.Size(22, 13);
+            this.lbldyerchek.TabIndex = 6;
+            this.lbldyerchek.Text = "///";
+            this.lbldyerchek.Visible = false;
+            // 
+            // lblpartchek
+            // 
+            this.lblpartchek.AutoSize = true;
+            this.lblpartchek.ForeColor = System.Drawing.Color.Red;
+            this.lblpartchek.Location = new System.Drawing.Point(204, 136);
+            this.lblpartchek.Name = "lblpartchek";
+            this.lblpartchek.Size = new System.Drawing.Size(22, 13);
+            this.lblpartchek.TabIndex = 6;
+            this.lblpartchek.Text = "///";
+            this.lblpartchek.Visible = false;
             // 
             // EkleForm
             // 
@@ -269,5 +308,8 @@ namespace VeritabaniProje
         private System.Windows.Forms.MaskedTextBox txt_tcno;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btn_kayit_ekle;
+        private System.Windows.Forms.Label lblradio;
+        private System.Windows.Forms.Label lblpartchek;
+        private System.Windows.Forms.Label lbldyerchek;
     }
 }

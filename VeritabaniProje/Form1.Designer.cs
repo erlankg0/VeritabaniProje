@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 369);
+            this.ClientSize = new System.Drawing.Size(525, 369);
             this.Controls.Add(this.btn_ekle);
             this.Controls.Add(this.btn_listeme);
             this.Controls.Add(this.dataGridListele);
@@ -102,6 +102,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridListele)).EndInit();
             this.ResumeLayout(false);
