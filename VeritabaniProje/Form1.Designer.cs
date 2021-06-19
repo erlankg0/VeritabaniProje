@@ -33,6 +33,7 @@
             this.dataGridListele = new System.Windows.Forms.DataGridView();
             this.btn_listeme = new System.Windows.Forms.Button();
             this.btn_ekle = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridListele)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +63,7 @@
             // 
             this.dataGridListele.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridListele.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridListele.GridColor = System.Drawing.SystemColors.MenuHighlight;
             this.dataGridListele.Location = new System.Drawing.Point(12, 77);
             this.dataGridListele.Name = "dataGridListele";
             this.dataGridListele.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -89,11 +91,23 @@
             this.btn_ekle.UseVisualStyleBackColor = true;
             this.btn_ekle.Click += new System.EventHandler(this.btn_ekle_Click);
             // 
+            // BtnDelete
+            // 
+            this.BtnDelete.Location = new System.Drawing.Point(176, 13);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(81, 39);
+            this.BtnDelete.TabIndex = 5;
+            this.BtnDelete.Text = "Kayıt Sil";
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 369);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(525, 369);
+            this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.btn_ekle);
             this.Controls.Add(this.btn_listeme);
             this.Controls.Add(this.dataGridListele);
@@ -102,6 +116,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridListele)).EndInit();
             this.ResumeLayout(false);
@@ -115,6 +130,7 @@
         private System.Windows.Forms.DataGridView dataGridListele;
         private System.Windows.Forms.Button btn_listeme;
         private System.Windows.Forms.Button btn_ekle;
+        private System.Windows.Forms.Button BtnDelete;
     }
 }
 
