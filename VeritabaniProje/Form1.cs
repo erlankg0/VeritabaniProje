@@ -90,6 +90,7 @@ namespace VeritabaniProje
             Baglanti.Close();
             KayitListele();
         }
+<<<<<<< HEAD
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
@@ -102,5 +103,7 @@ namespace VeritabaniProje
 
             formDelete.ShowDialog(); // Sil Form çığırıldı
         }
+=======
+>>>>>>> 9202824f6858c8545325336426e91267fa53e346
     }
 }

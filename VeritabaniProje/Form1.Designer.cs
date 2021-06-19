@@ -105,9 +105,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(525, 369);
             this.Controls.Add(this.BtnDelete);
+=======
+            this.ClientSize = new System.Drawing.Size(525, 369);
+>>>>>>> 9202824f6858c8545325336426e91267fa53e346
             this.Controls.Add(this.btn_ekle);
             this.Controls.Add(this.btn_listeme);
             this.Controls.Add(this.dataGridListele);
