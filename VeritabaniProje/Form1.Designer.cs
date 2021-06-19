@@ -32,6 +32,7 @@
             this.btnKapat = new System.Windows.Forms.Button();
             this.dataGridListele = new System.Windows.Forms.DataGridView();
             this.btn_listeme = new System.Windows.Forms.Button();
+            this.btn_ekle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridListele)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,9 +60,11 @@
             // 
             // dataGridListele
             // 
+            this.dataGridListele.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridListele.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridListele.Location = new System.Drawing.Point(12, 77);
             this.dataGridListele.Name = "dataGridListele";
+            this.dataGridListele.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridListele.Size = new System.Drawing.Size(494, 254);
             this.dataGridListele.TabIndex = 2;
             this.dataGridListele.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -76,16 +79,28 @@
             this.btn_listeme.UseVisualStyleBackColor = true;
             this.btn_listeme.Click += new System.EventHandler(this.btn_listeme_Click);
             // 
+            // btn_ekle
+            // 
+            this.btn_ekle.Location = new System.Drawing.Point(94, 12);
+            this.btn_ekle.Name = "btn_ekle";
+            this.btn_ekle.Size = new System.Drawing.Size(75, 40);
+            this.btn_ekle.TabIndex = 4;
+            this.btn_ekle.Text = "Kayıt Ekle";
+            this.btn_ekle.UseVisualStyleBackColor = true;
+            this.btn_ekle.Click += new System.EventHandler(this.btn_ekle_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 369);
+            this.Controls.Add(this.btn_ekle);
             this.Controls.Add(this.btn_listeme);
             this.Controls.Add(this.dataGridListele);
             this.Controls.Add(this.btnKapat);
             this.Controls.Add(this.btnAc);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridListele)).EndInit();
@@ -99,6 +114,7 @@
         private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.DataGridView dataGridListele;
         private System.Windows.Forms.Button btn_listeme;
+        private System.Windows.Forms.Button btn_ekle;
     }
 }
 

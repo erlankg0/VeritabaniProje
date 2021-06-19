@@ -78,5 +78,11 @@ namespace VeritabaniProje
         {
             KayitListele();
         }
+
+        private void btn_ekle_Click(object sender, EventArgs e)
+        {
+            EkleForm ekleForm = new EkleForm();
+            ekleForm.ShowDialog();
+        }
     }
 }
