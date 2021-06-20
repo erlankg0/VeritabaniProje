@@ -35,6 +35,9 @@ namespace VeritabaniProje
         }
 
         // Personel KayiListeleme Methodu
+        /// <summary>
+        ///  personel tum gosterme
+        /// </summary>
         public void KayitListele()
         {
             try
@@ -46,6 +49,62 @@ namespace VeritabaniProje
                 dbDataAdapter.Fill(dataSet, "Personel");  // datasete  Personel ile doldurduk,  adapter ile ama goremioyruz(yani copy var)
                 dataGridListele.DataSource = dataSet.Tables["Personel"]; // dataset deki veri datagride goster
                 Baglanti.Close();
+
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message, "Kayıt arama Hatası ");
+            }
+        }
+
+        // Kayit Arama method
+        public void KayitArama()
+        {
+            try
+            {
+                BaglantiAc();                               // veri tabani ac
+                DataSet dataSet = new DataSet();            // dataSet olurturdum
+
+                string SorguAD = "Select * from Personel where Ad='"+txtBirArama_Ad.Text+"'";
+                string Sorgu = "Select * from Personel where Soyad='" + txtSoyad_arama.Text + "'";
+                string SorguAdSoyad = "Select * from Personel where Ad='"+txtBirArama_Ad.Text+"' and Soyad='"+txtSoyad_arama.Text+"'";
+                string SorguTum = "Select * from Personel";
+                if (chxAD.Checked == true)
+                {
+                    OleDbDataAdapter dbDataAdapter = new OleDbDataAdapter(SorguAD, Baglanti); // data adapter olusturduk 
+                    dbDataAdapter.Fill(dataSet, "Personel");  // datasete  Personel ile doldurduk,  adapter ile ama goremioyruz(yani copy var)
+                    dataGridListele.DataSource = dataSet.Tables["Personel"]; // dataset deki veri datagride goster
+                    Baglanti.Close();
+                    MessageBox.Show("Ad ile Arama");
+
+                }
+                if (chb_soyad.Checked == true)
+                {
+                    OleDbDataAdapter dbDataAdapter = new OleDbDataAdapter(Sorgu, Baglanti); // data adapter olusturduk 
+
+                    dbDataAdapter.Fill(dataSet, "Personel");  // datasete  Personel ile doldurduk,  adapter ile ama goremioyruz(yani copy var)
+                    dataGridListele.DataSource = dataSet.Tables["Personel"]; // dataset deki veri datagride goster
+                    Baglanti.Close();
+
+                }
+                if (chb_Ad_Soyad.Checked == true)
+                {
+                    OleDbDataAdapter dbDataAdapter = new OleDbDataAdapter(SorguAdSoyad, Baglanti); // data adapter olusturduk 
+
+                    dbDataAdapter.Fill(dataSet, "Personel");  // datasete  Personel ile doldurduk,  adapter ile ama goremioyruz(yani copy var)
+                    dataGridListele.DataSource = dataSet.Tables["Personel"]; // dataset deki veri datagride goster
+                    Baglanti.Close();
+                }
+                else
+                {
+                    OleDbDataAdapter dbDataAdapter = new OleDbDataAdapter(SorguTum, Baglanti); // data adapter olusturduk 
+
+                    dbDataAdapter.Fill(dataSet, "Personel");  // datasete  Personel ile doldurduk,  adapter ile ama goremioyruz(yani copy var)
+                    dataGridListele.DataSource = dataSet.Tables["Personel"]; // dataset deki veri datagride goster
+                    Baglanti.Close();
+                }
+
+               
 
             }
             catch (Exception Error)
@@ -124,6 +183,57 @@ namespace VeritabaniProje
 
            
 
+        }
+
+        private void btnBirArama_Click(object sender, EventArgs e)
+        {
+            KayitArama();
+        }
+
+        private void chxAD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chxAD.Checked == true)
+            {
+                txtBirArama_Ad.Enabled = true;
+                txtSoyad_arama.Focus();
+            }
+            else
+            {
+                txtBirArama_Ad.Enabled = false;
+                txtBirArama_Ad.Clear();
+            }
+        }
+
+        private void chb_soyad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_soyad.Checked == true)
+            {
+                txtSoyad_arama.Enabled = true;
+                txtSoyad_arama.Focus();
+            }
+            else
+            {
+                txtSoyad_arama.Enabled = false;
+                txtSoyad_arama.Clear();
+            }
+        }
+
+        private void chb_Ad_Soyad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_Ad_Soyad.Checked == true)
+            {
+                txtBirArama_Ad.Enabled = true;
+                txtSoyad_arama.Enabled = true;
+                txtSoyad_arama.Focus();
+                txtBirArama_Ad.Focus();
+            }
+            else
+            {
+                txtSoyad_arama.Enabled = false;
+                txtSoyad_arama.Clear();
+                txtBirArama_Ad.Enabled = false;
+                txtBirArama_Ad.Clear();
+            }
         }
     }
 }
