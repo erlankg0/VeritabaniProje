@@ -45,19 +45,21 @@ namespace VeritabaniProje
             this.cmb_part = new System.Windows.Forms.ComboBox();
             this.txt_tcno = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_kayit_ekle = new System.Windows.Forms.Button();
-            this.lblradio = new System.Windows.Forms.Label();
-            this.lbldyerchek = new System.Windows.Forms.Label();
             this.lblpartchek = new System.Windows.Forms.Label();
+            this.lbldyerchek = new System.Windows.Forms.Label();
+            this.lblradio = new System.Windows.Forms.Label();
+            this.btn_kayit_ekle = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePicker_doğumGun
             // 
+            this.dateTimePicker_doğumGun.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_doğumGun.Location = new System.Drawing.Point(77, 158);
             this.dateTimePicker_doğumGun.Name = "dateTimePicker_doğumGun";
             this.dateTimePicker_doğumGun.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_doğumGun.TabIndex = 4;
+            this.dateTimePicker_doğumGun.Value = new System.DateTime(2021, 6, 20, 17, 58, 49, 0);
             // 
             // lbl_tcno
             // 
@@ -230,26 +232,16 @@ namespace VeritabaniProje
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "f";
             // 
-            // btn_kayit_ekle
+            // lblpartchek
             // 
-            this.btn_kayit_ekle.Location = new System.Drawing.Point(12, 222);
-            this.btn_kayit_ekle.Name = "btn_kayit_ekle";
-            this.btn_kayit_ekle.Size = new System.Drawing.Size(285, 39);
-            this.btn_kayit_ekle.TabIndex = 8;
-            this.btn_kayit_ekle.Text = "Kayıt Ekle.";
-            this.btn_kayit_ekle.UseVisualStyleBackColor = true;
-            this.btn_kayit_ekle.Click += new System.EventHandler(this.btn_kayit_ekle_Click);
-            // 
-            // lblradio
-            // 
-            this.lblradio.AutoSize = true;
-            this.lblradio.ForeColor = System.Drawing.Color.Red;
-            this.lblradio.Location = new System.Drawing.Point(188, 87);
-            this.lblradio.Name = "lblradio";
-            this.lblradio.Size = new System.Drawing.Size(22, 13);
-            this.lblradio.TabIndex = 6;
-            this.lblradio.Text = "///";
-            this.lblradio.Visible = false;
+            this.lblpartchek.AutoSize = true;
+            this.lblpartchek.ForeColor = System.Drawing.Color.Red;
+            this.lblpartchek.Location = new System.Drawing.Point(204, 136);
+            this.lblpartchek.Name = "lblpartchek";
+            this.lblpartchek.Size = new System.Drawing.Size(22, 13);
+            this.lblpartchek.TabIndex = 6;
+            this.lblpartchek.Text = "///";
+            this.lblpartchek.Visible = false;
             // 
             // lbldyerchek
             // 
@@ -262,16 +254,26 @@ namespace VeritabaniProje
             this.lbldyerchek.Text = "///";
             this.lbldyerchek.Visible = false;
             // 
-            // lblpartchek
+            // lblradio
             // 
-            this.lblpartchek.AutoSize = true;
-            this.lblpartchek.ForeColor = System.Drawing.Color.Red;
-            this.lblpartchek.Location = new System.Drawing.Point(204, 136);
-            this.lblpartchek.Name = "lblpartchek";
-            this.lblpartchek.Size = new System.Drawing.Size(22, 13);
-            this.lblpartchek.TabIndex = 6;
-            this.lblpartchek.Text = "///";
-            this.lblpartchek.Visible = false;
+            this.lblradio.AutoSize = true;
+            this.lblradio.ForeColor = System.Drawing.Color.Red;
+            this.lblradio.Location = new System.Drawing.Point(188, 87);
+            this.lblradio.Name = "lblradio";
+            this.lblradio.Size = new System.Drawing.Size(22, 13);
+            this.lblradio.TabIndex = 6;
+            this.lblradio.Text = "///";
+            this.lblradio.Visible = false;
+            // 
+            // btn_kayit_ekle
+            // 
+            this.btn_kayit_ekle.Location = new System.Drawing.Point(12, 222);
+            this.btn_kayit_ekle.Name = "btn_kayit_ekle";
+            this.btn_kayit_ekle.Size = new System.Drawing.Size(285, 39);
+            this.btn_kayit_ekle.TabIndex = 8;
+            this.btn_kayit_ekle.Text = "Kayıt Ekle.";
+            this.btn_kayit_ekle.UseVisualStyleBackColor = true;
+            this.btn_kayit_ekle.Click += new System.EventHandler(this.btn_kayit_ekle_Click);
             // 
             // EkleForm
             // 

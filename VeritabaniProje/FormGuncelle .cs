@@ -11,54 +11,14 @@ using System.Data.OleDb;
 
 namespace VeritabaniProje
 {
-    public partial class EkleForm : Form
+    public partial class FormGuncelle : Form
     {
-        public EkleForm()
+        public FormGuncelle()
         {
             InitializeComponent();
-        }        
-
-        public void Kayitekle()
-        {
-            
-            ///Sql sorgular
-            try
-            {
-                Form1.BaglantiAc(); /// baglanti actim
-                string Sorgu = "Insert Into Personel(Tcno, Ad, Soyad, Cinsiyet, Dyer, Dtar, Bolum) Values(@Tcno, @Ad, @Soyad, @Cinsiyet, @Dyer, @Dtar, @Bolum)"; /// Kayit ekleme SQl Sorgu
-
-                OleDbCommand oleDbCommand = new OleDbCommand(Sorgu, Form1.Baglanti); /// commnatd olusturdum
-                oleDbCommand.Parameters.AddWithValue("@Tcno", txt_tcno.Text);
-                oleDbCommand.Parameters.AddWithValue("@Ad", txt_ad.Text);
-                oleDbCommand.Parameters.AddWithValue("@Soyad", txt_soyad.Text);
-                if (rdb_kadin.Checked == true)
-                {
-                    oleDbCommand.Parameters.AddWithValue("@Cinsiyet", rdb_kadin.Text);
-
-                }
-                else
-                {
-                    oleDbCommand.Parameters.AddWithValue("@Cinsiyet", rdb_man.Text);
-                }
-                oleDbCommand.Parameters.AddWithValue("@Dyer", cmb_dyer.Text);
-                oleDbCommand.Parameters.AddWithValue("@Dtar", dateTimePicker_doğumGun.Text);
-                oleDbCommand.Parameters.AddWithValue("@Bolum", cmb_part.Text);
-
-                if (oleDbCommand.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("Kayıt Eklendi.");
-                    Form1.Baglanti.Close();
-                }
-               
-            }
-            catch (Exception Error)
-            {
-                MessageBox.Show("Kayit Hatasi", Error.ToString());
-                Form1.Baglanti.Close();
-
-            }
         }
-        public  bool BoslukKontrol()
+       
+        public bool BoslukKontrol()
         {
             bool kontrol = true;
 
@@ -127,16 +87,50 @@ namespace VeritabaniProje
             }
             return kontrol;
         }
-        private void btn_kayit_ekle_Click(object sender, EventArgs e)
+        public void KayitGuncelle()
+        {
+            try
+            {
+                Form1.BaglantiAc();         //Veritabanını aç
+                string Sorgu = "Update Personel Set Tcno=@Tcno,Ad=@Ad,Soyad=@Soyad,Cinsiyet=@Cinsiyet,Dyer=@Dyer,Dtar=@Dtar,Bolum=@Bolum where id=@ID";
+
+                OleDbCommand GuncelleKomut = new OleDbCommand(Sorgu, Form1.Baglanti);
+
+                GuncelleKomut.Parameters.AddWithValue("@Tcno", txt_tcno.Text);
+                GuncelleKomut.Parameters.AddWithValue("@Ad", txt_ad.Text);
+                GuncelleKomut.Parameters.AddWithValue("@Soyad", txt_soyad.Text);
+                if (rdb_man.Checked == true)
+                    GuncelleKomut.Parameters.AddWithValue("@Cinsiyet", "Erkek");
+                else
+                    GuncelleKomut.Parameters.AddWithValue("@Cinsiyet", "Kadın");
+                GuncelleKomut.Parameters.AddWithValue("@Dyer", cmb_dyer.Text);
+                GuncelleKomut.Parameters.AddWithValue("@Dtar", dateTimePicker_doğumGun.Text);
+                GuncelleKomut.Parameters.AddWithValue("@Bolum", cmb_part.Text);
+                GuncelleKomut.Parameters.AddWithValue("@ID", textBoxİD.Text);
+
+                if (GuncelleKomut.ExecuteNonQuery() == 1)
+                    MessageBox.Show("Kayıt Güncellendi");
+
+                Form1.Baglanti.Close();
+            }
+            catch (Exception Hata)
+            {
+                MessageBox.Show(Hata.Message, "Kayıt Güncelleme Hatası ");
+            }
+        }
+        private void btnFormGuncelle_Click(object sender, EventArgs e)
         {
             if (BoslukKontrol() == true)
             {
-                MessageBox.Show("Boşluk doldurunuz Kayıt yapılamaz");
+                MessageBox.Show("Boşluk doldurunuz");
             }
             else
             {
-                Kayitekle();
+                KayitGuncelle();
+                Form1.Baglanti.Close();
             }
+           
+
         }
     }
 }

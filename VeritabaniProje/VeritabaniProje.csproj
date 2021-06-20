@@ -62,6 +62,12 @@
     <Compile Include="FormDelete.Designer.cs">
       <DependentUpon>FormDelete.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGuncelle .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGuncelle .Designer.cs">
+      <DependentUpon>FormGuncelle .cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="EkleForm.resx">
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDelete.resx">
       <DependentUpon>FormDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGuncelle .resx">
+      <DependentUpon>FormGuncelle .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

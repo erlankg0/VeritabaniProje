@@ -90,7 +90,7 @@ namespace VeritabaniProje
             Baglanti.Close();
             KayitListele();
         }
-<<<<<<< HEAD
+
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
@@ -103,7 +103,27 @@ namespace VeritabaniProje
 
             formDelete.ShowDialog(); // Sil Form çığırıldı
         }
-=======
->>>>>>> 9202824f6858c8545325336426e91267fa53e346
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            FormGuncelle frmGuncelle = new FormGuncelle();
+            frmGuncelle.textBoxİD.Text = dataGridListele.CurrentRow.Cells[0].Value.ToString();
+            frmGuncelle.txt_tcno.Text = dataGridListele.CurrentRow.Cells[1].Value.ToString();
+            frmGuncelle.txt_ad.Text = dataGridListele.CurrentRow.Cells[2].Value.ToString();
+            frmGuncelle.txt_soyad.Text = dataGridListele.CurrentRow.Cells[3].Value.ToString();
+            if (dataGridListele.CurrentRow.Cells[4].Value.ToString() == "Erkek")
+                frmGuncelle.rdb_man.Checked = true;
+            else
+                frmGuncelle.rdb_kadin.Checked = true;
+            frmGuncelle.cmb_dyer.Text = dataGridListele.CurrentRow.Cells[5].Value.ToString();
+            frmGuncelle.dateTimePicker_doğumGun.Text = dataGridListele.CurrentRow.Cells[6].Value.ToString();
+            frmGuncelle.cmb_part.Text = dataGridListele.CurrentRow.Cells[7].Value.ToString();
+
+            frmGuncelle.ShowDialog();
+
+
+           
+
+        }
     }
 }
