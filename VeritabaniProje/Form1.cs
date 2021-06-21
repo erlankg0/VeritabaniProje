@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.OleDb;    //Access Veritabanı Kütüphanesi Tanımlama
+using System.Windows.Forms;
 
 namespace VeritabaniProje
 {
@@ -30,8 +24,8 @@ namespace VeritabaniProje
             }
             catch (Exception Hata)
             {
-                MessageBox.Show(Hata.Message,"Bağlantı Açma Hatası");
-            }        
+                MessageBox.Show(Hata.Message, "Bağlantı Açma Hatası");
+            }
         }
 
         // Personel KayiListeleme Methodu
@@ -65,9 +59,9 @@ namespace VeritabaniProje
                 BaglantiAc();                               // veri tabani ac
                 DataSet dataSet = new DataSet();            // dataSet olurturdum
 
-                string SorguAD = "Select * from Personel where Ad='"+txtBirArama_Ad.Text+"'";
+                string SorguAD = "Select * from Personel where Ad='" + txtBirArama_Ad.Text + "'";
                 string Sorgu = "Select * from Personel where Soyad='" + txtSoyad_arama.Text + "'";
-                string SorguAdSoyad = "Select * from Personel where Ad='"+txtBirArama_Ad.Text+"' and Soyad='"+txtSoyad_arama.Text+"'";
+                string SorguAdSoyad = "Select * from Personel where Ad='" + txtBirArama_Ad.Text + "' and Soyad='" + txtSoyad_arama.Text + "'";
                 string SorguTum = "Select * from Personel";
                 if (chxAD.Checked == true)
                 {
@@ -104,13 +98,95 @@ namespace VeritabaniProje
                     Baglanti.Close();
                 }
 
-               
+
 
             }
             catch (Exception Error)
             {
                 MessageBox.Show(Error.Message, "Hata Listeleme ");
             }
+        }
+        /// <summary>
+        ///  Personel tablodaki benzer arama method SQL % Like
+        /// </summary>
+        public void HizliKayitArama()
+        {
+            try
+            {
+                BaglantiAc();                               // veri tabani ac
+                DataSet dataSet = new DataSet();            // dataSet olurturdum
+                /// SQL TCNO hizli arama
+                string SorguTcnoBitten = "Select * from Personel where Tcno Like '%" + textaranan.Text + "'"; // sql bitten
+                string SorguTcnoBaslayan = "Select * from Personel where Tcno Like '" + textaranan.Text + "%'"; // sql başlayan
+                string SorguTcnoiceren = "Select * from Personel where Tcno Like '%" + textaranan.Text + "%'";
+
+                /// SQL Dogum yer hizli arama methodu
+                string SogrguDyerBitten = "Select * from Personel where Dyer Like '%" + textaranan.Text + "'";
+                string SorguDyerBaslayan = "Select * from Personel where Dyer Like '" + textaranan.Text + "%'";
+                string SorguDyericeren = "Select * from Personel where Dyer Like '%" + textaranan.Text + "%'";
+
+                string SorguTum = "Select * from Personel";
+
+                // Arama turun secme anlami
+                if (rdbDyerAra.Checked == true)
+                {
+                    if (cmbAramaTur.Text == "ile başlayan")
+                    {
+                        // Dogum yer ... ile baslayan
+                        SorguTum = SorguDyerBaslayan;
+                        Form1.Baglanti.Close();
+                    }
+                    else if (cmbAramaTur.Text == "ile bitten")
+                    {
+                        // Dogum yer ... ile bitten
+                        SorguTum = SogrguDyerBitten;
+                        Form1.Baglanti.Close();
+                    }
+                    else if (cmbAramaTur.Text == "içeren")
+                    {
+                        // Dogum yer ... iceren
+                        SorguTum = SorguDyericeren;
+                        Form1.Baglanti.Close();
+                    }
+                    Form1.Baglanti.Close();
+                }
+                else if (rdbTCNOara.Checked == true)
+                {
+                    if (cmbAramaTur.Text == "ile başlayan")
+                    {
+                        // TCNO ... ile baslayan
+                        SorguTum = SorguTcnoBaslayan;
+                        Form1.Baglanti.Close();
+                    }
+                    else if (cmbAramaTur.Text == "ile bitten")
+                    {
+                        // TCNO ... ile bitten
+                        SorguTum = SorguTcnoBitten;
+                        Form1.Baglanti.Close();
+                    }
+                    else if (cmbAramaTur.Text == "içeren")
+                    {
+                        // TCNO ... iceren
+                        SorguTum = SorguTcnoiceren;
+                        Form1.Baglanti.Close();
+                    }
+                    Form1.Baglanti.Close();
+                }
+
+                OleDbDataAdapter dbDataAdapter = new OleDbDataAdapter(SorguTum, Baglanti); // data adapter olusturduk 
+                dbDataAdapter.Fill(dataSet, "Personel");  // datasete  Personel ile doldurduk,  adapter ile ama goremioyruz(yani copy var)
+                dataGridListele.DataSource = dataSet.Tables["Personel"]; // dataset deki veri datagride goster
+                Baglanti.Close();
+
+            }
+            catch
+            {
+
+            }
+
+
+
+
         }
 
         private void btnAc_Click(object sender, EventArgs e)
@@ -181,7 +257,7 @@ namespace VeritabaniProje
             frmGuncelle.ShowDialog();
 
 
-           
+
 
         }
 
@@ -234,6 +310,34 @@ namespace VeritabaniProje
                 txtBirArama_Ad.Enabled = false;
                 txtBirArama_Ad.Clear();
             }
+        }
+
+        private void rdbDyerAra_CheckedChanged(object sender, EventArgs e)
+        {
+            arama_alan.Text = "Doğum yer";
+            arama_alan.Focus();
+        }
+
+        private void rdbTCNOara_CheckedChanged(object sender, EventArgs e)
+        {
+            arama_alan.Text = "TCNO";
+            arama_alan.Focus();
+        }
+
+        private void textaranan_TextChanged(object sender, EventArgs e)
+        {
+            HizliKayitArama();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PersonelForm personelForm = new PersonelForm();
+            personelForm.Show();
         }
     }
 }
