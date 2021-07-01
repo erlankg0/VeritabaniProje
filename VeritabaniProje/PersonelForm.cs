@@ -31,7 +31,7 @@ namespace VeritabaniProje
                 string Sorgu = "Select * from Kullanicilar";     // sql sorgu olusturdum
                 OleDbDataAdapter dbDataAdapter = new OleDbDataAdapter(Sorgu, Form1.Baglanti); // data adapter olusturduk 
                 dbDataAdapter.Fill(dataSet, "Kullanicilar");  // datasete  Personel ile doldurduk,  adapter ile ama goremioyruz(yani copy var)
-                dataGridView1.DataSource = dataSet.Tables["Kullanicilar"]; // dataset deki veri datagride goster
+                dataPersonelForm.DataSource = dataSet.Tables["Kullanicilar"]; // dataset deki veri datagride goster
                 Form1.Baglanti.Close();
 
             }
@@ -47,6 +47,8 @@ namespace VeritabaniProje
 
         private void PersonelForm_Load(object sender, EventArgs e)
         {
+            lblstatusLogin.Text = dataPersonelForm.CurrentRow.Cells[1].Value.ToString();
+            lblstatusType.Text = dataPersonelForm.CurrentRow.Cells[3].Value.ToString();
             KayitListele();
         }
     }

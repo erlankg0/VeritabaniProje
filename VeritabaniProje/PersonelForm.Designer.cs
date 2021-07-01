@@ -29,7 +29,7 @@ namespace VeritabaniProje
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataPersonelForm = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -48,24 +48,24 @@ namespace VeritabaniProje
             this.lblstatusLogin = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblstatusType = new System.Windows.Forms.ToolStripStatusLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataPersonelForm)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataPersonelForm
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 13);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(457, 345);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataPersonelForm.AllowUserToAddRows = false;
+            this.dataPersonelForm.AllowUserToDeleteRows = false;
+            this.dataPersonelForm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataPersonelForm.Location = new System.Drawing.Point(13, 13);
+            this.dataPersonelForm.Name = "dataPersonelForm";
+            this.dataPersonelForm.ReadOnly = true;
+            this.dataPersonelForm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataPersonelForm.Size = new System.Drawing.Size(457, 345);
+            this.dataPersonelForm.TabIndex = 0;
+            this.dataPersonelForm.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // groupBox1
             // 
@@ -239,13 +239,13 @@ namespace VeritabaniProje
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataPersonelForm);
             this.MaximumSize = new System.Drawing.Size(820, 450);
             this.MinimumSize = new System.Drawing.Size(820, 450);
             this.Name = "PersonelForm";
             this.Text = " ";
             this.Load += new System.EventHandler(this.PersonelForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataPersonelForm)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -257,8 +257,6 @@ namespace VeritabaniProje
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox3;
@@ -274,8 +272,9 @@ namespace VeritabaniProje
         private System.Windows.Forms.Button btn_delete_person;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel lblstatusLogin;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripStatusLabel lblstatusType;
+        public System.Windows.Forms.ToolStripStatusLabel lblstatusLogin;
+        public System.Windows.Forms.DataGridView dataPersonelForm;
+        public System.Windows.Forms.ToolStripStatusLabel lblstatusType;
     }
 }

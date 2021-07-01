@@ -337,7 +337,7 @@ namespace VeritabaniProje
         private void button1_Click(object sender, EventArgs e)
         {
             PersonelForm personelForm = new PersonelForm();
-            personelForm.Show();
+            personelForm.ShowDialog();
         }
     }
 }

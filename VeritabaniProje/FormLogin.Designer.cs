@@ -115,7 +115,7 @@ namespace VeritabaniProje
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(344, 271);
+            this.ClientSize = new System.Drawing.Size(344, 364);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btngiris);
             this.Controls.Add(this.txtPassword);
@@ -143,6 +143,6 @@ namespace VeritabaniProje
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btngiris;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }
